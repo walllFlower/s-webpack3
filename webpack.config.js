@@ -27,14 +27,12 @@ module.exports = {
                     use:'css-loader',
                     fallback:'style-loader'
                 }),
-                exclude: /node_module/
             },{
                 test: /\.scss$/,
                 use: ExtractTextWebpackPlugin.extract({
                     use:['css-loader','sass-loader'],
                     fallback: ['style-loader']
                 }),
-                exclude: /node_module/
             },{
                 test: /\.(png|jpg|gif|jpeg)$/,
                 use:[
@@ -66,8 +64,8 @@ module.exports = {
         extensions: ['.js', '.jsx', '.css', 'scss'],
         alias: {
             components: path.resolve(__dirname, 'src/components/'),
-            style: path.resolve(__dirname, 'src/style'),
-            assets: path.resolve(__dirname, 'src/assets')
+            style: path.resolve(__dirname, 'src/style/'),
+            assets: path.resolve(__dirname, 'src/assets/')
         }
     },
 

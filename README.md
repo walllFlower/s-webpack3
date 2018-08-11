@@ -51,6 +51,8 @@ path.resolve('src','style','..');
 
 #### Q2 process.env.NODE_ENV对配置的影响，以及DefinePlugin插件的作用？
 
+#### Q3 和react有关的几个babel-plugin的作用？
+
 #### 配置内容
 - 修改配置，支持react开发
 - 搭建好基本的react开发框架

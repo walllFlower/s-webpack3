@@ -1,24 +1,42 @@
 import React,{ Component } from 'react';
 
+import Dnd from 'tinper-bee/lib/Dnd';
+
 export default class Drager extends Component{
-
-    componentDidMount(){
-        let arrayLike = {
-            '0':'something',
-            '1':'some',
-            '2':'thing',
-            'length':3
-        }
-        this.setState({
-            array:Array.from(arrayLike)
-        })
+  constructor(props){
+    super(props);
+  }
+  componentDidMount(){
+    let arrayLike = {
+      '0':'something',
+      '1':'some',
+      '2':'thing',
+      'length':3
     }
+    this.setState({
+      array:Array.from(arrayLike)
+    })
+  }
 
-    render(){
-        return(
-            <div>
-                Something can be drag
-            </div>
-        )
-    }
+  handleDrag = () => {
+        
+  }
+
+  onStart = () => {
+
+  }
+
+  onStop = () => {
+
+  }
+
+  render(){
+    return(
+      <div>
+          <Dnd onStart={this.onStart} onStop={this.onStop} >
+            <div className="demo">我可随意拖拽</div>
+          </Dnd>
+      </div>
+    )
+  }
 }
