@@ -1,6 +1,6 @@
-import React,{ Component } from 'react';
+import React, {Component} from 'react';
 
-export default class Header extends Component{
+export default class MyForm extends Component{
     constructor(props){
         super(props);
     }
@@ -8,7 +8,7 @@ export default class Header extends Component{
     render(){
         return(
             <div>
-                <h2>Draggable Component</h2>
+                这是一个表单
             </div>
         )
     }

@@ -5,6 +5,8 @@ const baseConfig = require('./webpack.config.js');
 module.exports = merge(baseConfig,{
     mode: 'development',
 
+    devTool: 'cheap-module-eval-source-map',
+
     devServer:{
         inline: true,
         hot: true

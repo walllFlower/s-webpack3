@@ -48,11 +48,15 @@ path.resolve('src','style','..');
 
 > 8.10
 #### Q1 source-map是什么玩意儿？
+- webpack在打包的过程中，会将源代码压缩、去空格、babel转码，最终获得适合生产环境的项目代码，这样经过处理的目标代码与源代码之间存在很大的差异，会导致无法debug的问题。source-map就是在两者之间构建了桥梁来解决问题。
+- webpack的devtool工具一共有7种模式，每种模式生成的map工具都不同(有些是map文件，有些是嵌入datURL)。综合来看，开发模式适用“cheap-module-eval-source-map”，生产模式适用“cheap-module-source-map”。
 
 #### Q2 process.env.NODE_ENV对配置的影响，以及DefinePlugin插件的作用？
+
 
 #### Q3 和react有关的几个babel-plugin的作用？
 
 #### 配置内容
 - 修改配置，支持react开发
 - 搭建好基本的react开发框架
+
