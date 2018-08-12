@@ -46,3 +46,5 @@ export default class App extends Component{
         )
     }
 }
+
+console.log(process.env.NODE_ENV);

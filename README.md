@@ -52,11 +52,24 @@ path.resolve('src','style','..');
 - webpack的devtool工具一共有7种模式，每种模式生成的map工具都不同(有些是map文件，有些是嵌入datURL)。综合来看，开发模式适用“cheap-module-eval-source-map”，生产模式适用“cheap-module-source-map”。
 
 #### Q2 process.env.NODE_ENV对配置的影响，以及DefinePlugin插件的作用？
+- DefinePlugin配置的NODE_ENV是针对将被编译和打包的文件、依赖的。如自己编写的组件或者依赖的包中需要通过判断NODE_ENV来执行不同代码，即可配置DefinePlugin。
+- webpack4中通过配置mode，webpack将会自动帮我们配置好DefinePlugin。
 
+- 如果需要在webpack配置文件中使用NODE_ENV，可使用工具cross-env传入。DefinePlugin中配置的NODE_ENV不会在配置文件中起作用。
 
 #### Q3 和react有关的几个babel-plugin的作用？
+- babel-plugin-transform-class-properties 转换class的属性(不知道为什么，加上该组件才能使用箭头函数)
+- babel-plugin-syntax-dynamic-import 动态import
+- 其实以上两个都不是跟react有关的，是跟ES6有关的
 
 #### 配置内容
-- 修改配置，支持react开发
-- 搭建好基本的react开发框架
+- 修改配置，支持react开发 √
+- 搭建好基本的react开发框架 √
+- 配置好react-router和import()动态加载
+- 配置好devtool工具
+
+> 8.13
+#### 配置内容
+- 配置build下文件夹分类
+- 学习HOC，看懂react-dnd
 
