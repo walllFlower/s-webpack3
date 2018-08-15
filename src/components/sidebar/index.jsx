@@ -39,7 +39,7 @@ export default class Sidebar extends Component{
                   <Link to="/form">表单组件</Link>
               </Menu.Item>
               <Menu.Item key="3">
-                  <Link to="/another">其他组件</Link>
+                  <Link to="/dragExample">拖拽例子</Link>
               </Menu.Item>
           </Menu>
         </div>

@@ -9,6 +9,9 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import loading from './loading';
 
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+
 //CSS
 import 'style/common.scss';
 
@@ -22,11 +25,11 @@ const AsyncDrger = Loadable({
     loading: loading
 })
 
-const AsyncAnother = Loadable({
-    loader: () => import('components/another'),
+const AsyncDragExample = Loadable({
+    loader: () => import('components/dragExample'),
     loading
 })
-export default class App extends Component{
+class App extends Component{
     constructor(props){
         super(props);
     }
@@ -39,12 +42,11 @@ export default class App extends Component{
                     <div className="inner-container">
                         <Route exact path="/" component={AsyncDrger}></Route>
                         <Route path="/form" component={AsyncMyForm}></Route>
-                        <Route path="/another" component={AsyncAnother}></Route>
+                        <Route path="/dragExample" component={AsyncDragExample}></Route>
                     </div>
                 </div>
             </BrowserRouter>
         )
     }
 }
-
-console.log(process.env.NODE_ENV);
+export default DragDropContext(HTML5Backend)(App);
