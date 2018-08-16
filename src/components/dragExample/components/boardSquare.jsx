@@ -14,7 +14,6 @@ function collect(connect, monitor) {
       isOver: monitor.isOver()
     };
 }
-let moveKnight = null;
 const squareTarget = {
     drop(props) {
         console.log(props);
@@ -27,10 +26,6 @@ class BoardSquare extends Component{
         x: PropTypes.number.isRequired,
         y: PropTypes.number.isRequired,
         moveKnight: PropTypes.func.isRequired
-    }
-
-    componentWillMount(){
-        moveKnight = this.props.moveKnight;
     }
 
     render(){

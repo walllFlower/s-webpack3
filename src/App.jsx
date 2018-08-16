@@ -9,9 +9,6 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import loading from './loading';
 
-import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
-
 //CSS
 import 'style/common.scss';
 
@@ -29,7 +26,7 @@ const AsyncDragExample = Loadable({
     loader: () => import('components/dragExample'),
     loading
 })
-class App extends Component{
+export default class App extends Component{
     constructor(props){
         super(props);
     }
@@ -49,4 +46,3 @@ class App extends Component{
         )
     }
 }
-export default DragDropContext(HTML5Backend)(App);

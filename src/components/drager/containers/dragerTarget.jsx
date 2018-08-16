@@ -1,20 +1,13 @@
 import React, {Component} from 'react';
 
 import { DropTarget } from 'react-dnd';
+import { ItemTypes } from 'components/constant';
 
-//CSS
-import './index.scss';
 
 const spec = {
-    canDrop(props, monitor) {
-        // You can disallow drop based on props or item
-        const item = monitor.getItem();
-        // return canMakeChessMove(item.fromPosition, props.position);
-    },
-
-    drop(props, monitor, component) {
-        console.log('target drop');
-      }
+    drop(props,monitor) {
+        console.log('target drop',props,monitor.getItemType());
+    }
 }
 
 function collect(connect, monitor) {
@@ -32,8 +25,7 @@ function collect(connect, monitor) {
 
 class DragerTarget extends Component{
     render(){
-        const { connectDropTarget, isOver, canDrop } = this.props;
-
+        const { connectDropTarget, isOver } = this.props;
         return connectDropTarget(
             <div className="box">
                 <h2>Target</h2>
@@ -42,4 +34,4 @@ class DragerTarget extends Component{
     }
 }
 
-export default DropTarget('card', spec, collect)(DragerTarget)
+export default DropTarget(ItemTypes.CARD, spec, collect)(DragerTarget)
