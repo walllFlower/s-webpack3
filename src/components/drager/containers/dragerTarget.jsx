@@ -3,10 +3,12 @@ import React, {Component} from 'react';
 import { DropTarget } from 'react-dnd';
 import { ItemTypes } from 'components/constant';
 
+import Card from '../components/card';
+
 
 const spec = {
     drop(props,monitor) {
-        console.log('target drop',props,monitor.getItemType());
+        return {}
     }
 }
 
@@ -24,11 +26,20 @@ function collect(connect, monitor) {
   }
 
 class DragerTarget extends Component{
+
     render(){
-        const { connectDropTarget, isOver } = this.props;
+        const { connectDropTarget, isOver, content, moveOut } = this.props;
         return connectDropTarget(
             <div className="box">
                 <h2>Target</h2>
+                <div>
+                    {content.map((item) => {
+                        return <Card 
+                                id={item} 
+                                key={item}
+                                moveOut={moveOut}/>
+                    })}
+                </div>
             </div>
         )
     }
