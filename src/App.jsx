@@ -11,6 +11,8 @@ import loading from './loading';
 
 //CSS
 import 'style/common.scss';
+import 'style/myForm.scss';
+import 'style/drager.scss';
 
 const AsyncMyForm = Loadable({
     loader: () => import('components/myForm'),

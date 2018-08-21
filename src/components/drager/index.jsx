@@ -8,8 +8,6 @@ import Card from './components/card';
 import DragerTarget from './containers/dragerTarget';
 
 //CSS
-import './index.scss';
-import { Map } from 'core-js';
 
 class Drager extends Component{
   constructor(props){

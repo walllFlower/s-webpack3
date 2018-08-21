@@ -70,6 +70,10 @@ path.resolve('src','style','..');
 
 > 8.13
 #### 配置内容
-- 配置build下文件夹分类
-- 学习HOC，看懂react-dnd
+- 配置build下文件夹分类 
+- 学习HOC，看懂react-dnd √
 
+#### Q1通过import()动态加载的模块中，如果有引入css，动态加载会失败
+
+> 8.20
+- 添加login页面，调试/login接口

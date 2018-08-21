@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { Icon } from 'tinper-bee';
 
 import { DragSource } from 'react-dnd';
 import { ItemTypes } from 'components/constant';
 
 //CSS
-import './index.scss';
 
 const cardSource = {
   beginDrag(props) {

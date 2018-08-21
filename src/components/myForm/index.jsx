@@ -1,15 +1,11 @@
 import React, {Component} from 'react';
+import PersonForm from './personForm';
+// import axois from 'axios';
 
 export default class MyForm extends Component{
-    constructor(props){
-        super(props);
-    }
-
     render(){
         return(
-            <div>
-                这是一个表单
-            </div>
+            <PersonForm />         
         )
     }
 }

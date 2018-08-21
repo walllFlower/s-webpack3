@@ -1,0 +1,22 @@
+#myform{
+    .form-item{
+        margin: 15px 0 15px 0;
+
+        input[type=text]{
+            height: 28px;
+            line-height: 28px;
+            border-radius: 5px;
+            outline: none;
+            border: 1px solid #ddd;
+            width: 200px;
+            text-indent: 10px;
+            font-size: 14px;
+        }
+
+        .error{
+            padding-left: 5px;
+            color:#f00;
+            font-size: 14px;
+        }
+    }
+}
