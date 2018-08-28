@@ -41,6 +41,9 @@ export default class Sidebar extends Component{
               <Menu.Item key="3">
                   <Link to="/dragExample">拖拽例子</Link>
               </Menu.Item>
+              <Menu.Item key="4">
+                  <Link to="/login">登录</Link>
+              </Menu.Item>
           </Menu>
         </div>
       )

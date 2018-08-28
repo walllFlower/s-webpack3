@@ -3,7 +3,7 @@ import React,{ Component } from 'react';
 import Sidebar from 'components/sidebar';
 
 //路由
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, hashHistory } from 'react-router-dom';
 
 //动态加载
 import Loadable from 'react-loadable';
@@ -13,6 +13,8 @@ import loading from './loading';
 import 'style/common.scss';
 import 'style/myForm.scss';
 import 'style/drager.scss';
+
+//components
 
 const AsyncMyForm = Loadable({
     loader: () => import('components/myForm'),

@@ -6,10 +6,13 @@ const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-    entry:['babel-polyfill','./src/index.js'],
+    entry:{
+        index:['babel-polyfill','./src/index.js'],
+        login:['./src/login.js']
+    },
 
     output:{
-        filename: 'bundle.js',
+        filename: 'bundle.[name].js',
         path: path.resolve(__dirname,'dist')
     },
 
@@ -69,9 +72,17 @@ module.exports = {
 
     plugins:[
         new HtmlWebpackplugin({
-            template: './src/template.ejs',
+            template: './src/template/index.ejs',
             title:'Page For Drag',  //ejs的嵌入语法 <%= => 不需要{} !!!
-            inject: true
+            inject: true,
+            chunks:['index']
+        }),
+        new HtmlWebpackplugin({
+            filename:'login.html',
+            template: './src/template/login.ejs',
+            title:'Login',
+            inject: true,
+            chunks:['login']
         }),
         new ExtractTextWebpackPlugin({
             filename:'style.css'

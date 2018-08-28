@@ -77,3 +77,10 @@ path.resolve('src','style','..');
 
 > 8.20
 - 添加login页面，调试/login接口
+
+#### 前后端分离后导致的路由问题，前端路由or后端路由
+
+> 8.26 
+- 添加了koa-jwt与jsonwebtoken。但非公共api(/api/form)仍然返回401
+
+#### 前后端之间的用户认证机制

@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "start": "node ./server/app.js",
+    "deploy": "npm run build && node ./server/app.js"
   },
   "keywords": [],
   "author": "",
@@ -35,8 +37,17 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
+    "koa": "^2.5.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-logger": "^3.2.0",
+    "koa-passport": "^4.1.0",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.8.3",
+    "koa-static": "^5.0.0",
+    "passport-local": "^1.0.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
+    "react-cookies": "^0.1.0",
     "react-dnd": "^5.0.0",
     "react-dnd-html5-backend": "^5.0.1",
     "react-dom": "^16.4.2",

@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import { createForm } from 'rc-form';
 
+import cookie from 'react-cookies';
+import axios from 'axios';
+
 
 class PersonForm extends Component{
     constructor(props){
@@ -12,10 +15,14 @@ class PersonForm extends Component{
         const { getFieldsValue } = this.props.form;
         let data = getFieldsValue();
 
-        // axois.post('/create',data)
-        // .then(res => {
-        //     console.log(res);
-        // })
+        axios.post('/api/form',data,{
+            headers:{
+                Authorazition: `Bearer ${cookie.load('token')}`
+            }
+        })
+        .then(res => {
+            console.log(res);
+        })
     }
 
     render(){
