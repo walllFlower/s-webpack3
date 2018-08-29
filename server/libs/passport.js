@@ -1,6 +1,8 @@
 const passport = require('koa-passport')
 var LocalStrategy = require('passport-local').Strategy
 
+const User = require('../model/user');
+
 // 序列化ctx.login()触发
 passport.serializeUser(function(user, done) {
   console.log('serializeUser: ', user)
@@ -18,7 +20,12 @@ passport.use(new LocalStrategy({
   // passwordField: 'passwd'
 }, function(username, password, done) {
   console.log('LocalStrategy', username, password)
-  var user = {id: 1, username: username, password: password}
+  // var user = {id: 1, username: username, password: password}
+  const user = new User({id:1, username:username, password: password});
+  user.save(function(err, user){
+    if (err) return console.error(err);
+  });
+
   done(null, user, {msg: 'this is a test'})
   // done(err, user, info)
 }))

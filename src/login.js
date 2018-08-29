@@ -22,7 +22,7 @@ class Login extends Component{
     handlerLogin = () => {
         let {username, password} = this.state;
 
-        axios.post('/api/login',{
+        axios.post('/login',{
             username,
             password
         })
