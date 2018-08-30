@@ -37,6 +37,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
+    "cookie-parser": "^1.4.3",
     "koa": "^2.5.2",
     "koa-bodyparser": "^4.2.1",
     "koa-logger": "^3.2.0",

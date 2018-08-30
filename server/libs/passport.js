@@ -6,28 +6,46 @@ const User = require('../model/user');
 // 序列化ctx.login()触发
 passport.serializeUser(function(user, done) {
   console.log('serializeUser: ', user)
-  done(null, user.id)
+  done(null, user.id);
 })
 // 反序列化（请求时，session中存在"passport":{"user":"1"}触发）
 passport.deserializeUser(async function(id, done) {
   console.log('deserializeUser: ', id)
-  var user = {id: 1, username: 'admin', password: '123456'}
-  done(null, user)
+
+  /**
+   * 为什么不用findById:findById默认使用_id搜索，而这里作为session_id的是schema中的id
+   */
+  User.findOne({id: id}, function(err, user){
+    done(err, user);
+  })
 })
+
+
 // 提交数据(策略)
 passport.use(new LocalStrategy({
   // usernameField: 'email',
   // passwordField: 'passwd'
 }, function(username, password, done) {
-  console.log('LocalStrategy', username, password)
-  // var user = {id: 1, username: username, password: password}
-  const user = new User({id:1, username:username, password: password});
-  user.save(function(err, user){
-    if (err) return console.error(err);
-  });
+  User.findOne({username: username}, function(err, user){
 
-  done(null, user, {msg: 'this is a test'})
-  // done(err, user, info)
+    //由特殊到一般的处理方式
+    if(err) 
+      return done(err);
+    if(!user) 
+      return done(null, false, {msg: 'user not exist'});
+    if(user.password !== password) 
+      return done(null, false, {msg: 'password error'});
+    return done(null, user, {msg: 'success'});
+
+    
+    // if(user && user.password === password){
+    //   done(null, user, {msg: 'success'})
+    // }else if(user && user.password !== password){
+    //   done(null, null,{msg: 'password wrong'})
+    // }else {
+    //   done(null, null, {msg: 'user not exist'})
+    // }
+  })
 }))
 
 

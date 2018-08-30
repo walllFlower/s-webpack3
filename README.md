@@ -84,3 +84,6 @@ path.resolve('src','style','..');
 - 添加了koa-jwt与jsonwebtoken。但非公共api(/api/form)仍然返回401
 
 #### 前后端之间的用户认证机制
+
+> 8.30
+

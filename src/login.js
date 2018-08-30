@@ -27,13 +27,33 @@ class Login extends Component{
             password
         })
         .then((res) => {
-            cookie.save('token', res.data.token, { path: '/'})
             console.log(res);
+            alert('登录成功');
+            // location.pathname = '/';
         })
         .catch((err) => {
             console.log(err);
         })
+    }
 
+    handlerRegis = () => {
+        let {username, password} = this.state;
+
+        axios.post('/register',{
+            username,
+            password
+        })
+        .then((res) => {
+            console.log(res);
+            alert('注册成功');
+            this.setState({
+                username: '',
+                password: ''
+            })
+        })
+        .catch((err) => {
+            console.log(err);
+        })
     }
 
     render(){
@@ -52,6 +72,10 @@ class Login extends Component{
                 <div>
                     <button onClick={this.handlerLogin}>登录</button>
                 </div>
+                <div>
+                    <button onClick={this.handlerRegis}>注册</button>
+                </div>
+
             </div>
         )
     }

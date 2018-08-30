@@ -18,21 +18,45 @@ router.use('/api/*', (ctx, next) => {
    }
  });
 
+/**
+ * 登录
+ */
 router.post('/login',async function(ctx, next){
     return passport.authenticate('local',
         function(err, user, info, status) {
-            ctx.body = {user, err, info, status}
-            return ctx.login({id: 1, username: 'admin', password: '123456'})
+            ctx.body = {err, info, status}
+            if(user){
+                return ctx.login(user)
+            }
         })(ctx)
 });
 
-router.post('/api/form',async function(ctx, next){
-    User.find(function(err,users){
-        console.log(users);
+/**
+ * 注册
+ */
+router.post('/register',async function(ctx, next){
+    const username = ctx.request.body.username,
+          password = ctx.request.body.password;
+
+    let id = Math.ceil(Math.random() * 1E6);
+    const user = new User({id, username, password});
+    user.save(function(err, user){
+        if(err) console.log(err);
+        else console.log('存储成功!')
     })
 
+    ctx.response.status = 200;
+    ctx.response.body = {
+        msg:'注册成功'
+    }
+})
+
+router.post('/api/form',async function(ctx, next){
+
     ctx.status = 200;
-    ctx.body = 'pass out';
+    ctx.body = {
+        user: ctx.request.user
+    };
 })
 
 module.exports = router;

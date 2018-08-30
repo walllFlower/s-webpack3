@@ -30,6 +30,7 @@ const AsyncDragExample = Loadable({
     loader: () => import('components/dragExample'),
     loading
 })
+
 export default class App extends Component{
     constructor(props){
         super(props);

@@ -1,6 +1,7 @@
 const path = require('path');
 const Koa = require('koa');
-const bodyParser = require('koa-bodyparser')();
+const bodyParser = require('koa-bodyparser');
+const cookieParser = require('cookie-parser');
 const static = require('koa-static');
 const logger = require('koa-logger')();
 const session = require('koa-session')
@@ -19,14 +20,14 @@ const router = require('./router'); //路由
 
 /* 注意中间件的顺序 */
 app.use(logger);
-
-app.use(bodyParser); //解析post请求体
+app.use(bodyParser()); //解析post请求体
 
 app.keys = ['123456'];
 app.use(session({
-    cookie: {secure: false, maxAge:86400000},
-  }, app));
+  cookie: {secure: false, maxAge:86400000},
+}, app));
 
+// app.use(cookieParser());
 app.use(passport.initialize())
 app.use(passport.session())
 
