@@ -1,11 +1,9 @@
 const path = require('path');
 const Koa = require('koa');
 const bodyParser = require('koa-bodyparser');
-const cookieParser = require('cookie-parser');
 const static = require('koa-static');
 const logger = require('koa-logger')();
-const session = require('koa-session')
-
+const session = require('koa-session');
 //token验证有关
 // const jwt = require('jsonwebtoken')
 // const jwtKoa = require('koa-jwt')
@@ -22,12 +20,13 @@ const router = require('./router'); //路由
 app.use(logger);
 app.use(bodyParser()); //解析post请求体
 
+// 向response header中添加set-cookie字段 keys有什么用？
 app.keys = ['123456'];
 app.use(session({
   cookie: {secure: false, maxAge:86400000},
 }, app));
 
-// app.use(cookieParser());
+// 为ctx挂载isAuthenticated、login方法、state.user属性
 app.use(passport.initialize())
 app.use(passport.session())
 

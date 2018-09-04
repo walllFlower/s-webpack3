@@ -4,6 +4,8 @@ import { createForm } from 'rc-form';
 import cookie from 'react-cookies';
 import axios from 'axios';
 
+import Bridge from '../../libs/bridge';
+
 
 class PersonForm extends Component{
     constructor(props){
@@ -15,11 +17,7 @@ class PersonForm extends Component{
         const { getFieldsValue } = this.props.form;
         let data = getFieldsValue();
 
-        axios.post('/api/form',data,{
-            headers:{
-                Authorazition: `Bearer ${cookie.load('token')}`
-            }
-        })
+        Bridge.post('/api/form', data)
         .then(res => {
             console.log(res);
         })

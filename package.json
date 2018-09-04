@@ -48,6 +48,7 @@
     "mongoose": "^5.2.10",
     "passport-local": "^1.0.0",
     "prop-types": "^15.6.2",
+    "qs": "^6.5.2",
     "react": "^16.4.2",
     "react-cookies": "^0.1.0",
     "react-dnd": "^5.0.0",

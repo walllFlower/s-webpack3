@@ -4,6 +4,8 @@ import { Menu } from 'tinper-bee';
 
 import './style.scss';
 
+import Bridge from 'libs/bridge';
+
 export default class Sidebar extends Component{
     constructor(props){
       super(props);
@@ -23,9 +25,21 @@ export default class Sidebar extends Component{
       })
     }
 
+    handleBridge = () => {
+      Bridge.get('/api/bridge',{
+        params:{
+          name:'zym'
+        }
+      })
+      .then(res => {
+        console.log(res);
+      })
+    }
+
     render(){
       return(
         <div className="sidebar-menu">
+          <p onClick={this.handleBridge}>点我测试brideg</p>
           <Menu
               mode="inline"
               style={{width:220}}

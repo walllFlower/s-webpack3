@@ -86,4 +86,9 @@ path.resolve('src','style','..');
 #### 前后端之间的用户认证机制
 
 > 8.30
+- 添加passport用户认证
+
+>9.04
+- 添加Bridge模块
+- post请求的参数和content-type对应
 
